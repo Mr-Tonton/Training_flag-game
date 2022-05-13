@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flag game</title>
+
+        <!-- FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Oleo+Script:wght@400;700&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="../assets/css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <ul>
+                <li>
+                    <button id="restart-btn" class="restart-btn">START</button>
+                </li>
+                <li>
+                    <h1>FLAG GAME</h1>
+                </li>
+                <li>
+                    <h2>SCORE:</h2>
+                    <p><span id="display-score">0</span> pts</p>
+                </li>
+            </ul>
+        </header>
+        <main>
+            <section>
+                <div id="flag-container" class="flag-container">
+                    <img src="../assets/images/worldFlag.gif">
+                </div>
+            </section>
+            <section>
+                <div class="answers-container">
+                    <h2>À quel pays appartient ce drapeau ?</h2>
+                    <ul>
+                        <li id="answerA"></li>
+                        <li id="answerB"></li>
+                        <li id="answerC"></li>
+                        <li id="answerD"></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </body>
+
+</html>

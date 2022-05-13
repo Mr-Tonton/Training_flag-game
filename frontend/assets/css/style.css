@@ -1,0 +1,180 @@
+/* ----- RESET ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/pexels-andrea-piacquadio-3769138.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+* {
+    font-size: calc(2vmin + 15px);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style-type: none;
+}
+
+
+/* ----- FONTS ----- */
+
+* {
+    font-family: 'Nova Square', cursive;
+}
+
+
+/* ----- HEADER ----- */
+
+header ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0;
+}
+
+header ul h1 {
+    font-family: 'Oleo Script', cursive;
+    font-size: calc(3vmin + 30px);
+    color: #fff;
+    text-shadow: 5px 0 3px #000, 0 5px 3px #000, -5px 0 3px #000, 0 -5px 3px #000;
+    text-align: center;
+    white-space: nowrap;
+}
+
+header ul li:nth-child(3) {
+    font-size: calc(1vmin + 15px);
+    background-color: #fff;
+    padding: 10px 25px;
+    border: #000 solid 5px;
+    border-radius: 10px;
+}
+
+header ul li:nth-child(3) p {
+    font-size: calc(2vmin + 15px);
+    background-color: #fff;
+    text-align: center;
+}
+
+.restart-btn {
+    color: #d00;
+    border: #000 5px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.restart-btn:hover {
+    transform: scale(1.02);
+    transition: .1s;
+    text-shadow: 2px 0 3px #000, 0 2px 3px #000, -2px 0 3px #000, 0 -2px 3px #000;
+}
+
+.restart-btn:active {
+    font-weight: 700;
+    text-shadow: 2px 0 3px #000, 0 2px 3px #000, -2px 0 3px #000, 0 -2px 3px #000;
+
+}
+
+/* ------ MAIN ------ */
+
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ------ FLAG SECTION ------ */
+
+
+.flag-container {
+    background-color: white;
+    width: 50vw;
+    max-width: 400px;
+    margin: 10px 0 50px 0;
+    border: #000 solid 7px;
+}
+
+.flag-container img {
+    width: 100%;
+    height: 100%;
+}
+
+/* ------ ANSWERS SECTION ------ */
+
+
+.answers-container {
+    background-color: #fff;
+    width: 100vw;
+    max-width: 1200px;
+    border: #000 solid 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answers-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.answers-container h2 {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.answers-container ul li {
+    background-color: #ccc;
+    width: 60%;
+    max-width: 400px;
+    margin: 20px 50px;
+    padding: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.answers-container ul li:hover {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+/* media queries */
+
+@media (max-width: 1013px) {
+    .answers-container ul li {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 509px) {
+    header ul {
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    header ul li:nth-child(2) {
+        display: none;
+    }
+
+    .flag-container {
+        margin: 10px 0;
+    }
+
+    .answers-container h2 {
+        margin: 5px 0;
+    }
+}
