@@ -12,7 +12,7 @@ class FlagGame {
         this.answerArray = [this.answerA, this.answerB, this.answerC, this.answerD];
         this.score = 0;
         this.delayStart = 1500;
-        this.displayAnwsersTime = 2000;
+        this.displayAnwsersTime = 2500;
         this.gameStarted = false;
         this.clicked = false;
     };
@@ -72,7 +72,7 @@ class FlagGame {
                     this.displayAnwsers(value);
                     this.startBtn.disabled = false;
                     this.startBtn.style = "#000";
-                }, this.delayStart * .5);
+                }, this.delayStart);
             })
             .catch(err => console.log(err.message))
     };

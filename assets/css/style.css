@@ -106,6 +106,7 @@ section {
     width: 50vw;
     max-width: 400px;
     max-height: 300px;
+    min-height: 15vh;
     margin: 10px 0 50px;
     border: #000 solid 7px;
 }
@@ -118,6 +119,8 @@ section {
 .flag-container p {
     display: none;
     justify-content: center;
+    align-items: center;
+    height: 100%;
     font-size: calc(5vmin + 25px);
     color: #fff;
     text-align: center;
