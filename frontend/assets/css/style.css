@@ -1,8 +1,8 @@
 /* ----- RESET ----- */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -42,7 +42,7 @@ header ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 50px 0;
+    margin: 20px 0;
 }
 
 header ul h1 {
@@ -68,23 +68,24 @@ header ul li:nth-child(3) p {
     text-align: center;
 }
 
-.restart-btn {
-    color: #d00;
+.start-btn {
+    color: #000;
+    font-weight: 700;
     border: #000 5px solid;
     border-radius: 10px;
     cursor: pointer;
-    padding: 2px 5px;
+    width: 175px;
+    height: 70px;
 }
 
-.restart-btn:hover {
+.start-btn:hover {
     transform: scale(1.02);
     transition: .1s;
-    text-shadow: 2px 0 3px #000, 0 2px 3px #000, -2px 0 3px #000, 0 -2px 3px #000;
+    text-shadow: 2px 0 3px #888, 0 2px 3px #888, -2px 0 3px #888, 0 -2px 3px #888;
 }
 
-.restart-btn:active {
-    font-weight: 700;
-    text-shadow: 2px 0 3px #000, 0 2px 3px #000, -2px 0 3px #000, 0 -2px 3px #000;
+.start-btn:active {
+    text-shadow: 2px 0 3px #666, 0 2px 3px #666, -2px 0 3px #666, 0 -2px 3px #666;
 
 }
 
@@ -101,9 +102,10 @@ section {
 
 
 .flag-container {
-    background-color: white;
+    background-color: #000;
     width: 50vw;
     max-width: 400px;
+    max-height: 300px;
     margin: 10px 0 50px 0;
     border: #000 solid 7px;
 }
@@ -111,6 +113,16 @@ section {
 .flag-container img {
     width: 100%;
     height: 100%;
+}
+
+.flag-container p {
+    display: none;
+    justify-content: center;
+    font-size: calc(5vmin + 25px);
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    animation: scaleVariation 1s infinite both;
 }
 
 /* ------ ANSWERS SECTION ------ */
@@ -140,24 +152,100 @@ section {
 }
 
 .answers-container ul li {
-    background-color: #ccc;
+    background-color: rgb(182, 182, 182);
     width: 60%;
     max-width: 400px;
     margin: 20px 50px;
     padding: 5px;
     cursor: pointer;
     transition: .2s;
+    white-space: pre-wrap;
 }
 
 .answers-container ul li:hover {
-    background-color: rgba(0, 0, 0, .3);
+    transform: scale(1.02);
+    transition: .2s;
 }
 
-/* media queries */
+/* --------- DYNAMIC CLASSES --------- */
+
+.good-answer {
+    animation: growShrink 1s both;
+    background-color: rgb(144, 189, 144)!important;
+
+}
+
+.wrong-answer {
+    background-color: rgb(255, 187, 187)!important;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+
+/* ------- ANIMATIONS -------- */
+
+
+@keyframes scaleVariation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(.7);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translateX(-1px);
+    }
+    
+    20%, 80% {
+      transform: translateX(2px);
+    }
+  
+    30%, 50%, 70% {
+      transform: translateX(-4px);
+    }
+  
+    40%, 60% {
+      transform: translateX(4px);
+    }
+}
+
+@keyframes growShrink {
+    10%, 90% {
+        transform: scale(.99);
+    }
+    
+    20%, 80% {
+        transform: scale(1.01);
+    }
+  
+    30%, 50%, 70% {
+        transform: scale(.97);
+    }
+  
+    40%, 60% {
+        transform: scale(1.03);
+    }
+}
+
+
+/* ---------- MEDIA QUERIES ----------*/
 
 @media (max-width: 1013px) {
     .answers-container ul li {
         margin: 5px;
+    }
+
+    .start-btn {
+        width: 120px;
+        height: 50px;
     }
 }
 

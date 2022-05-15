@@ -14,37 +14,40 @@
             rel="stylesheet">
 
         <link rel="stylesheet" href="../assets/css/style.css">
+
+        <script src="../assets/js/script.js" defer type="module"></script>
     </head>
 
     <body>
         <header>
             <ul>
                 <li>
-                    <button id="restart-btn" class="restart-btn">START</button>
+                    <button id="start-btn" class="start-btn">START</button>
                 </li>
                 <li>
                     <h1>FLAG GAME</h1>
                 </li>
                 <li>
                     <h2>SCORE:</h2>
-                    <p><span id="display-score">0</span> pts</p>
+                    <p><span id="display-score">0</span> pt(s)</p>
                 </li>
             </ul>
         </header>
         <main>
             <section>
-                <div id="flag-container" class="flag-container">
-                    <img src="../assets/images/worldFlag.gif">
+                <div class="flag-container">
+                    <img id="flag-img" src="../assets/images/spin-globe.gif" alt="globe terrestre">
+                    <p id="flag-text">Good Luck</p>
                 </div>
             </section>
             <section>
                 <div class="answers-container">
-                    <h2>À quel pays appartient ce drapeau ?</h2>
+                    <h2>Which country does this flag belong to?</h2>
                     <ul>
-                        <li id="answerA"></li>
-                        <li id="answerB"></li>
-                        <li id="answerC"></li>
-                        <li id="answerD"></li>
+                        <li id="answer-a"> </li>
+                        <li id="answer-b"> </li>
+                        <li id="answer-c"> </li>
+                        <li id="answer-d"> </li>
                     </ul>
                 </div>
             </section>
