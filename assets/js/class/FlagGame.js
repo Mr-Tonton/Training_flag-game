@@ -12,8 +12,8 @@ class FlagGame {
         
         this.answerArray = [this.answerA, this.answerB, this.answerC, this.answerD];
         this.score = 0;
-        this.delayStart = 2000;
-        this.displayAnwsersTime = 3000;
+        this.delayStart = 1000;
+        this.displayAnwsersTime = 2000;
         this.gameStarted = false;
         this.clicked = false;
     };
@@ -66,7 +66,7 @@ class FlagGame {
             .then((value) => {
                 setTimeout(() => {
                     this.displayAnwsers(value)
-                }, this.delayStart) *.8
+                }, this.delayStart *.6)
             })
             .catch(err => console.log(err.message))
     };
