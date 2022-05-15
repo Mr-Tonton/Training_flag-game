@@ -32,7 +32,7 @@ li {
 /* ----- FONTS ----- */
 
 * {
-    font-family: 'Nova Square', cursive;
+    font-family: 'Nova Square', cursive, sans-serif;
 }
 
 
@@ -106,7 +106,7 @@ section {
     width: 50vw;
     max-width: 400px;
     max-height: 300px;
-    margin: 10px 0 50px 0;
+    margin: 10px 0 50px;
     border: #000 solid 7px;
 }
 

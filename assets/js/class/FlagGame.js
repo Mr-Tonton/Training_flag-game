@@ -5,14 +5,13 @@ class FlagGame {
         this.flagImg = document.getElementById("flag-img");
         this.flagText = document.getElementById("flag-text");
         this.answerA = document.getElementById("answer-a");
-        this.answerA = document.getElementById("answer-a");
         this.answerB = document.getElementById("answer-b");
         this.answerC = document.getElementById("answer-c");
         this.answerD = document.getElementById("answer-d");
-        
+
         this.answerArray = [this.answerA, this.answerB, this.answerC, this.answerD];
         this.score = 0;
-        this.delayStart = 1000;
+        this.delayStart = 1500;
         this.displayAnwsersTime = 2000;
         this.gameStarted = false;
         this.clicked = false;
@@ -34,13 +33,18 @@ class FlagGame {
                 entrie.textContent = " ";
             }
         }
+
+        for (let answer of this.answerArray) {
+            answer.classList.remove(...answer.classList);
+        }
+
         this.score = 0;
         this.displayScore.textContent = this.score;
         this.flagText.style.display = "flex";
         this.flagImg.style.display = "none";
         setTimeout(() => {
             this.flagText.style.display = "none";
-        }, this.delayStart)
+        }, this.delayStart);
     }
 
     nextQuestion() {
@@ -60,13 +64,15 @@ class FlagGame {
         return fetch("https://restcountries.com/v3.1/all")
             .then((res) => {
                 if (res.ok) {
-                    return res.json()
+                    return res.json();
                 }
             })
             .then((value) => {
                 setTimeout(() => {
-                    this.displayAnwsers(value)
-                }, this.delayStart *.6)
+                    this.displayAnwsers(value);
+                    this.startBtn.disabled = false;
+                    this.startBtn.style = "#000";
+                }, this.delayStart * .5);
             })
             .catch(err => console.log(err.message))
     };
@@ -74,7 +80,7 @@ class FlagGame {
 
     displayAnwsers(value) {
         // good value
-        let randomLi = this.answerArray[this.randomNumber(0, 3)]
+        let randomLi = this.answerArray[this.randomNumber(0, 3)];
         let randomRef = this.randomNumber(0, value.length);
         this.flagImg.src = `https://countryflagsapi.com/svg/${value[randomRef].cca3}`;
         this.flagImg.style.display = "block";
@@ -86,8 +92,11 @@ class FlagGame {
         for (let entrie in this.answerArray) {
             if (this.answerArray[entrie].textContent === " ") {
                 let randomWrongRef = this.randomNumber(0, value.length);
-                if (value[randomWrongRef].name.common !== value[randomRef].name.common)
                 this.answerArray[entrie].textContent = value[randomWrongRef].name.common;
+                while (value[randomWrongRef].name.common === value[randomRef].name.common) {
+                    randomWrongRef = this.randomNumber(0, value.length);
+                    this.answerArray[entrie].textContent = value[randomWrongRef].name.common;
+                }
             }
         }
     }
@@ -99,33 +108,41 @@ class FlagGame {
     initControls() {
 
         this.startBtn.addEventListener("click", () => {
+            this.startBtn.disabled = true;
+            this.startBtn.style = "#000";
+            this.startBtn.style.color = "#fff";
             this.startGame();
             this.getGamesFetch();
             this.gameStarted = true;
 
         });
-        
+
         // addEventListener ON ALL ANSWERS
-        for (let i = 0; i < 4; i++) {
-            this.answerArray[i].addEventListener("click", (e) => {
+        for (let entrie of this.answerArray) {
+            entrie.addEventListener("click", () => {
+                this.startBtn.disabled = true;
+                this.startBtn.style = "#000";
+
                 if (this.gameStarted && !this.clicked) {
-                    if (this.answerArray[i].classList.contains("good")) {
+                    if (entrie.classList.contains("good")) {
                         this.score++;
                         this.displayScore.textContent = this.score;
-                        this.answerArray[i].classList.add("good-answer");
+                        entrie.classList.add("good-answer");
                         setTimeout(() => {
-                            this.answerArray[i].classList.remove(...this.answerArray[i].classList);
+                            entrie.classList.remove(...entrie.classList);
                         }, this.displayAnwsersTime);
-                                                setTimeout(() => {
-                            this.answerArray[i].classList.remove(...this.answerArray[i].classList);
+                        setTimeout(() => {
+                            entrie.classList.remove(...entrie.classList);
                         }, this.displayAnwsersTime);
-                        
+
                     } else {
                         this.score = 0;
                         this.displayScore.textContent = this.score;
-                        this.answerArray[i].classList.add("wrong-answer");
+                        entrie.classList.add("wrong-answer");
                         setTimeout(() => {
-                            this.answerArray[i].classList.remove(...this.answerArray[i].classList);
+                            for (let answer of this.answerArray) {
+                                answer.classList.remove(...answer.classList);
+                            }
                         }, this.displayAnwsersTime);
                     }
                     this.clicked = true;
